@@ -1,11 +1,20 @@
 import { Button, buttonVariants } from "~/components/ui/button";
-import WesbiteCard from "~/components/WebsiteCard";
+
+function Badge(props: any) {
+	return (
+		<a
+			{...props}
+			target="_blank"
+			className="inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+		/>
+	);
+}
 
 export default function Home() {
 	return (
-		<main class="text-center mx-auto text-gray-700 gap-2 flex flex-col items-center justify-center">
+		<main class="gap-2 flex flex-col items-center justify-center">
 			<title>NotAlex.Dev</title>
-			<h1 class="max-6-xs text-6xl uppercase mt-8">Hello there!</h1>
+			<h1 class="mt-8 tracking-tighter">Hello there! 👋</h1>
 			<img
 				src="/images/alex.png"
 				alt="Alex"
@@ -16,63 +25,158 @@ export default function Home() {
 				development space!
 			</p>
 			<p class="text-xl">some apps i've made</p>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-4 columns-sm">
-				<a href="https://timelineup.com/" target="_blank">
-					<div class="flex flex-col md:flex-row w-full justify-center gap-4">
-						<div class="border-2 border-gray-200 rounded-lg overflow-hidden bg-background shadow-sm transition-all hover:scale-[1.02] hover:shadow-md ">
-							<div class="block ">
-								<img
-									src="/images/timelineup.png"
-									alt="Link Preview"
-									width={600}
-									height={400}
-									class="w-full h-48 object-cover"
-								/>
-								<div class="p-4">
-									<h3 class="text-lg font-semibold mb-2">TimeLineup.com</h3>
-									<p class="text-muted-foreground text-sm mb-4">
-										TimeLineup is an event planning and management platforms.
-										allowing easier planning of online based events from
-										different timezones.
-									</p>
-									<p>made width: NextJs, Supabase, Tailwind </p>
-									<Button variant={"outline"} class={`w-full`}>
-										Visit Website
-									</Button>
-								</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 columns-sm">
+				<div class="flex flex-col md:flex-row w-full justify-center gap-4">
+					<div class="border-2 border-gray-200 rounded-lg overflow-hidden bg-background shadow-sm transition-all hover:scale-[1.02] hover:shadow-md ">
+						<div class="block">
+							<img
+								src="/images/timelineup.png"
+								alt="Link Preview"
+								width={600}
+								height={400}
+								class="w-full h-48 object-cover"
+							/>
+							<div class="p-4">
+								<h3 class="text-lg font-semibold mb-2">TimeLineup.com</h3>
+								<p class="text-muted-foreground text-sm mb-4">
+									TimeLineup is an event planning and management platforms.
+									allowing easier planning of online based events from different
+									timezones.
+								</p>
+								<p class="pb-2 items-center">
+									{"made width "}
+									<Badge href="https://nextjs.org/">
+										<img
+											alt="Next.js logomark"
+											src="/brands/nextjs.svg"
+											class="!mr-1"
+											width="14"
+											height="14"
+										/>
+										Next.js
+									</Badge>
+									{", "}
+									<Badge href="https://supabase.com/">
+										<img
+											alt="Supabase logomark"
+											src="/brands/supabase.svg"
+											class="!mr-1"
+											width="14"
+											height="14"
+										/>
+										Supabase
+									</Badge>
+									{", "}
+									<Badge href="https://orm.drizzle.team/">
+										<img
+											alt="Drizzle orm logomark"
+											src="/brands/drizzle-dark.svg"
+											class="!mr-1"
+											width="14"
+											height="14"
+										/>
+										Drizzle orm
+									</Badge>
+									{", "}
+									<Badge href="https://tailwindcss.com/">
+										<img
+											alt="Tailwind logomark"
+											src="/brands/tailwind.svg"
+											class="!mr-1"
+											width="14"
+											height="14"
+										/>
+										Tailwind
+									</Badge>
+									{" and hosted on "}
+									<Badge href="https://vercel.com/">
+										<img
+											alt="Vercel logomark"
+											src="/brands/vercel-dark.svg"
+											class="!mr-1"
+											width="14"
+											height="14"
+										/>
+										Vercel
+									</Badge>
+								</p>
+								<a
+									href="https://timelineup.com/"
+									target="_blank"
+									class={`${buttonVariants({ variant: "outline" })} w-full`}
+								>
+									Visit Website
+								</a>
 							</div>
 						</div>
 					</div>
-				</a>
+				</div>
 
-				<a href="https://www.starfield-lock-solver.com/" target="_blank">
-					<div class="flex flex-col md:flex-row w-full justify-center gap-4">
-						<div class="border-2 border-gray-200 rounded-lg overflow-hidden bg-background shadow-sm transition-all hover:scale-[1.02] hover:shadow-md ">
-							<div class="block">
-								<img
-									src="/images/starfield.png"
-									alt="Link Preview"
-									width={600}
-									height={400}
-									class="w-full h-48 object-cover"
-								/>
-								<div class="p-4">
-									<h3 class="text-lg font-semibold mb-2">
-										Starfield-lock-solver.com
-									</h3>
-									<p class="text-muted-foreground text-sm mb-4">
-										A highly optimised algorithm matching site to solve a puzzle
-										in the game Starfield.
-									</p>
-									<p>made width: NuxtJs </p>
-									<Button class="w-full" variant={"outline"}>
-										Visit Wesbite
-									</Button>
-								</div>
+				<div class="flex flex-col md:flex-row w-full justify-center gap-4">
+					<div class="border-2 border-gray-200 rounded-lg overflow-hidden bg-background shadow-sm transition-all hover:scale-[1.02] hover:shadow-md ">
+						<div class="block">
+							<img
+								src="/images/starfield.png"
+								alt="Link Preview"
+								width={600}
+								height={400}
+								class="w-full h-48 object-cover"
+							/>
+							<div class="p-4">
+								<h3 class="text-lg font-semibold mb-2">
+									Starfield-lock-solver.com
+								</h3>
+								<p class="text-muted-foreground text-sm mb-4">
+									A highly optimised algorithm matching site to solve a puzzle
+									in the game Starfield.
+								</p>
+								<p class="pb-2 ">
+									{"made width "}
+									<Badge href="https://nuxt.com/">
+										<img
+											alt="Nuxt.js logomark"
+											src="/brands/nuxt.svg"
+											class="!mr-1"
+											width="14"
+											height="14"
+										/>
+										Nuxt.js
+									</Badge>
+									{", "}
+									<Badge href="https://tailwindcss.com/">
+										<img
+											alt="Tailwind logomark"
+											src="/brands/tailwind.svg"
+											class="!mr-1"
+											width="14"
+											height="14"
+										/>
+										Tailwind
+									</Badge>
+									{" and hosted on "}
+									<Badge href="https://vercel.com/">
+										<img
+											alt="Vercel logomark"
+											src="/brands/vercel-dark.svg"
+											class="!mr-1"
+											width="14"
+											height="14"
+										/>
+										Vercel
+									</Badge>
+								</p>
+
+								<a
+									href="https://www.starfield-lock-solver.com/"
+									target="_blank"
+									class={`${buttonVariants({ variant: "outline" })} w-full`}
+								>
+									Visit Website
+								</a>
 							</div>
 						</div>
 					</div>
-				</a>
+				</div>
 			</div>
 		</main>
 	);

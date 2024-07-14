@@ -11,7 +11,9 @@ export default function App() {
 			root={(props) => (
 				<>
 					<Nav />
-					<Suspense>{props.children}</Suspense>
+					<main class="max-w-2xl mx-auto">
+						<Suspense>{props.children}</Suspense>
+					</main>
 				</>
 			)}
 		>
