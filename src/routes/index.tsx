@@ -1,11 +1,11 @@
-import { Button, buttonVariants } from "~/components/ui/button";
+import { buttonVariants } from "~/components/ui/button";
 
 function Badge(props: any) {
 	return (
 		<a
 			{...props}
 			target="_blank"
-			className="inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+			class="inline-flex align-middle items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
 		/>
 	);
 }
@@ -14,9 +14,11 @@ export default function Home() {
 	return (
 		<main class="gap-2 flex flex-col items-center justify-center">
 			<title>NotAlex.Dev</title>
-			<h1 class="mt-8 tracking-tighter">Hello there! 👋</h1>
+			<h1 class="mt-8 tracking-tighter text-2xl font-medium">
+				Hello there! 👋
+			</h1>
 			<img
-				src="/images/alex.png"
+				src="/images/alexOutlined.png"
 				alt="Alex"
 				class="rounded-full w-32 h-32 mx-auto mb-4"
 			/>
@@ -27,7 +29,7 @@ export default function Home() {
 			<p class="text-xl">some apps i've made</p>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 columns-sm">
 				<div class="flex flex-col md:flex-row w-full justify-center gap-4">
-					<div class="border-2 border-gray-200 rounded-lg overflow-hidden bg-background shadow-sm transition-all hover:scale-[1.02] hover:shadow-md ">
+					<div class="border-2  rounded-lg overflow-hidden bg-background shadow-sm transition-all hover:scale-[1.02] hover:shadow-md ">
 						<div class="block">
 							<img
 								src="/images/timelineup.png"
@@ -43,8 +45,8 @@ export default function Home() {
 									allowing easier planning of online based events from different
 									timezones.
 								</p>
-								<p class="pb-2 items-center">
-									{"made width "}
+								<p class="pb-2 ">
+									{"made with "}
 									<Badge href="https://nextjs.org/">
 										<img
 											alt="Next.js logomark"
@@ -67,12 +69,15 @@ export default function Home() {
 										Supabase
 									</Badge>
 									{", "}
-									<Badge href="https://orm.drizzle.team/">
+									<Badge
+										href="https://orm.drizzle.team/"
+										class="flex align-top"
+									>
 										<img
 											alt="Drizzle orm logomark"
-											src="/brands/drizzle-dark.svg"
+											src="/brands/drizzle.svg"
 											class="!mr-1"
-											width="14"
+											width="16"
 											height="14"
 										/>
 										Drizzle orm
@@ -113,7 +118,7 @@ export default function Home() {
 				</div>
 
 				<div class="flex flex-col md:flex-row w-full justify-center gap-4">
-					<div class="border-2 border-gray-200 rounded-lg overflow-hidden bg-background shadow-sm transition-all hover:scale-[1.02] hover:shadow-md ">
+					<div class="border-2 rounded-lg overflow-hidden bg-background shadow-sm transition-all hover:scale-[1.02] hover:shadow-md ">
 						<div class="block">
 							<img
 								src="/images/starfield.png"
@@ -131,14 +136,13 @@ export default function Home() {
 									in the game Starfield.
 								</p>
 								<p class="pb-2 ">
-									{"made width "}
+									{"made with "}
 									<Badge href="https://nuxt.com/">
 										<img
 											alt="Nuxt.js logomark"
 											src="/brands/nuxt.svg"
-											class="!mr-1"
+											class="!mr-1 "
 											width="14"
-											height="14"
 										/>
 										Nuxt.js
 									</Badge>
