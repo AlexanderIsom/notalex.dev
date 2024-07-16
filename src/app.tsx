@@ -29,7 +29,7 @@ export default function App() {
 					<ColorModeScript storageType={storageManager.type} />
 					<ColorModeProvider storageManager={storageManager}>
 						<Nav />
-						<main class="max-w-2xl mx-auto">
+						<main class="max-w-2xl mx-auto px-4">
 							<Suspense>{props.children}</Suspense>
 						</main>
 					</ColorModeProvider>

@@ -12,19 +12,21 @@ function Badge(props: any) {
 
 export default function Home() {
 	return (
-		<main class="gap-2 flex flex-col items-center justify-center">
+		<section class="gap-4 flex flex-col justify">
 			<title>NotAlex.Dev</title>
-			<h1 class="mt-8 tracking-tighter text-2xl font-medium">
-				Hello there! 👋
-			</h1>
-			<img
-				src="/images/alexOutlined.png"
-				alt="Alex"
-				class="rounded-full w-32 h-32 mx-auto mb-4"
-			/>
-			<p class="text-2xl">
-				My name is Alexander im a Software Engineer working my way into the web
-				development space!
+			<div>
+				<img
+					src="/images/alexOutlined.png"
+					alt="Alex"
+					class="rounded-full w-32 h-32 "
+				/>
+				<h1 class="mt-8 tracking-tighter text-2xl font-semibold">
+					Hello there! 👋
+				</h1>
+			</div>
+			<p>
+				I'm Alexander a Software Engineer passionate about the web development
+				space!
 			</p>
 			<p class="text-xl">some apps i've made</p>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 columns-sm">
@@ -182,6 +184,6 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-		</main>
+		</section>
 	);
 }
