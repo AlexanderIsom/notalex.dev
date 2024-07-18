@@ -12,9 +12,9 @@ function Badge(props: any) {
 
 export default function Home() {
 	return (
-		<section class="gap-4 flex flex-col justify">
+		<section class="gap-4 flex flex-col w-full">
 			<title>NotAlex.Dev</title>
-			<div>
+			<div class="w-full flex flex-col items-center justify-center ">
 				<img
 					src="/images/alexOutlined.png"
 					alt="Alex"
