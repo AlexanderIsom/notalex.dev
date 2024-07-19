@@ -1,4 +1,5 @@
 import DarkModeToggle from "./DarkModeToggle";
+import MailFormDialog from "./MailForm";
 
 export default function Nav() {
 	return (
@@ -6,10 +7,7 @@ export default function Nav() {
 			<ul class="container flex items-center p-3 justify-center ">
 				<div class="flex font-semibold items-center gap-4">
 					<a href="/">home</a>
-					<a href="mailto:alexanderdisom@gmail.com" target="_blank">
-						contact
-					</a>
-
+					{/* <MailFormDialog /> */}
 					<DarkModeToggle />
 				</div>
 			</ul>
