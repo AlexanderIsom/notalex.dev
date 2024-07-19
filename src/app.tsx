@@ -24,9 +24,8 @@ export default function App() {
 		isServer ? getServerCookies() : document.cookie
 	);
 
-	if (!isServer) {
-		inject();
-	}
+	inject({ mode: "auto" });
+
 	return (
 		<Router
 			root={(props) => (

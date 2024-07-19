@@ -25,7 +25,7 @@ export default function Home() {
 				<img
 					src="/images/alexOutlined.png"
 					alt="Alex"
-					class="rounded-full w-32 h-32 "
+					class="rounded-full max-w-32 max-h-32 object-cover"
 				/>
 				<h1 class="mt-8 tracking-tighter text-2xl font-semibold">
 					Hello there! 👋
