@@ -19,7 +19,7 @@ function Badge(props: any) {
 
 export default function Home() {
 	return (
-		<section class="gap-4 flex flex-col w-full">
+		<section class="gap-4 flex flex-col">
 			<title>NotAlex.Dev</title>
 			<div class="w-full flex flex-col items-center justify-center ">
 				<img
@@ -186,6 +186,11 @@ export default function Home() {
 					</CardContent>
 				</Card>
 			</div>
+			<p>
+				I'm currently working in the games industry and have a desire to move
+				into web development, I'm currently learning new things and building
+				projects to improve my skills.
+			</p>
 		</section>
 	);
 }

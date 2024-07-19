@@ -11,6 +11,7 @@ import {
 	cookieStorageManagerSSR,
 } from "@kobalte/core";
 import { isServer } from "solid-js/web";
+import { inject } from "@vercel/analytics";
 
 function getServerCookies() {
 	"use server";
@@ -22,6 +23,10 @@ export default function App() {
 	const storageManager = cookieStorageManagerSSR(
 		isServer ? getServerCookies() : document.cookie
 	);
+
+	if (!isServer) {
+		inject();
+	}
 	return (
 		<Router
 			root={(props) => (
