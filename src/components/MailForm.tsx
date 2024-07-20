@@ -3,6 +3,7 @@ import { z } from "zod";
 import {
 	Dialog,
 	DialogContent,
+	DialogDescription,
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
@@ -91,6 +92,9 @@ export default function MailFormDialog() {
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Contact me</DialogTitle>
+					<DialogDescription>
+						{`Please include your contact details (phone number or email) and the company you represent 😊`}
+					</DialogDescription>
 				</DialogHeader>
 
 				<Form
