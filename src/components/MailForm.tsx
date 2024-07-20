@@ -48,7 +48,7 @@ const submitForm = action(async (formData: ContactForm) => {
 		to: process.env.MAILER_TARGET,
 		// cc: email, (uncomment this line if you want to send a copy to the sender)
 		subject: `Message from ${name} (${email})`,
-		text: `This is a message via notalex.dev from ${name} : ${message} `,
+		text: `This is a message via notalex.dev from ${name} (${email}): ${message} `,
 	};
 
 	const sendMailPromise = () =>
