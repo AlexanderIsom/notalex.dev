@@ -64,8 +64,10 @@ const submitForm = action(async (formData: ContactForm) => {
 
 	try {
 		await sendMailPromise();
+		return true;
 	} catch (err) {
 		console.log(err);
+		return false;
 	}
 });
 
@@ -93,13 +95,21 @@ export default function MailFormDialog() {
 
 				<Form
 					onSubmit={async (data) => {
-						await submitMessage(data);
+						const success = await submitMessage(data);
 						setOpen(false);
-						showToast({
-							title: "Message Sent!",
-							description:
-								"Thank you for your message, i'll get back to you as soon as possible 😃",
-						});
+						if (success) {
+							showToast({
+								title: "Message Sent!",
+								description:
+									"Thank you for your message, i'll get back to you as soon as possible 😃",
+							});
+						} else {
+							showToast({
+								title: "Error!",
+								variant: "error",
+								description: "Please try again shortly.",
+							});
+						}
 					}}
 					class="flex flex-col gap-4"
 				>
