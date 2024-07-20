@@ -1,5 +1,7 @@
-import { Button } from "./ui/button";
+import { createForm, zodForm } from "@modular-forms/solid";
+import Mail from "nodemailer/lib/mailer";
 import { z } from "zod";
+import { Button } from "./ui/button";
 import {
 	Dialog,
 	DialogContent,
@@ -14,13 +16,12 @@ import {
 	TextFieldLabel,
 	TextFieldTextArea,
 } from "./ui/text-field";
-import { SubmitHandler, createForm, zodForm } from "@modular-forms/solid";
-import Mail from "nodemailer/lib/mailer";
 
-import nodemailer from "nodemailer";
 import { action, useAction } from "@solidjs/router";
+import nodemailer from "nodemailer";
 import { createSignal } from "solid-js";
 import { showToast } from "./ui/toast";
+import { IconSpinner } from "./Icons";
 
 const ContactSchema = z.object({
 	email: z.string().email(),
@@ -81,14 +82,8 @@ export default function MailFormDialog() {
 	const submitMessage = useAction(submitForm);
 
 	return (
-		<Dialog open={open()}>
-			<DialogTrigger
-				onClick={() => {
-					setOpen(true);
-				}}
-			>
-				contact
-			</DialogTrigger>
+		<Dialog open={open()} onOpenChange={setOpen}>
+			<DialogTrigger>contact</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Contact me</DialogTitle>
@@ -117,7 +112,10 @@ export default function MailFormDialog() {
 					}}
 					class="flex flex-col gap-4"
 				>
-					<TextField class="grid w-full items-center gap-1.5 ">
+					<TextField
+						class="grid w-full items-center gap-1.5 "
+						disabled={contactForm.submitting}
+					>
 						<TextFieldLabel for="name">Your Name</TextFieldLabel>
 						<Field name="name">
 							{(field, props) => (
@@ -129,7 +127,10 @@ export default function MailFormDialog() {
 						</Field>
 					</TextField>
 
-					<TextField class="grid w-full items-center gap-1.5 ">
+					<TextField
+						class="grid w-full items-center gap-1.5 "
+						disabled={contactForm.submitting}
+					>
 						<TextFieldLabel for="email">Your Email</TextFieldLabel>
 						<Field name="email">
 							{(field, props) => (
@@ -141,7 +142,10 @@ export default function MailFormDialog() {
 						</Field>
 					</TextField>
 
-					<TextField class="grid w-full items-center gap-1.5 ">
+					<TextField
+						class="grid w-full items-center gap-1.5 "
+						disabled={contactForm.submitting}
+					>
 						<TextFieldLabel for="message">Message</TextFieldLabel>
 						<Field name="message">
 							{(field, props) => (
@@ -157,8 +161,19 @@ export default function MailFormDialog() {
 							)}
 						</Field>
 					</TextField>
-					<Button type="submit" disabled={contactForm.submitting}>
-						{contactForm.submitting ? "Sending" : "Send"}
+					<Button
+						type="submit"
+						disabled={contactForm.submitting}
+						class="items-center text-center"
+					>
+						{contactForm.submitting ? (
+							<>
+								{"Sending"}
+								<IconSpinner class="ml-1 w-5 h-5 animate-spin" />
+							</>
+						) : (
+							"Send"
+						)}
 					</Button>
 				</Form>
 			</DialogContent>
