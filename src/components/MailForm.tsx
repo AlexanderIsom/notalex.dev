@@ -18,6 +18,8 @@ import Mail from "nodemailer/lib/mailer";
 
 import nodemailer from "nodemailer";
 import { action, useAction } from "@solidjs/router";
+import { createSignal } from "solid-js";
+import { showToast } from "./ui/toast";
 
 const ContactSchema = z.object({
 	email: z.string().email(),
@@ -64,31 +66,40 @@ const submitForm = action(async (formData: ContactForm) => {
 		await sendMailPromise();
 	} catch (err) {
 		console.log(err);
-	} finally {
-		console.log("success");
 	}
 });
 
 export default function MailFormDialog() {
+	const [open, setOpen] = createSignal(false);
 	const [contactForm, { Form, Field, FieldArray }] = createForm<ContactForm>({
 		validate: zodForm(ContactSchema),
 	});
 
 	const submitMessage = useAction(submitForm);
 
-	// const handleSubmit: SubmitHandler<ContactForm> = (values, event) => {};
-
 	return (
-		<Dialog>
-			<DialogTrigger>contact</DialogTrigger>
+		<Dialog open={open()}>
+			<DialogTrigger
+				onClick={() => {
+					setOpen(true);
+				}}
+			>
+				contact
+			</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Contact me</DialogTitle>
 				</DialogHeader>
 
 				<Form
-					onSubmit={(data) => {
-						submitMessage(data);
+					onSubmit={async (data) => {
+						await submitMessage(data);
+						setOpen(false);
+						showToast({
+							title: "Message Sent!",
+							description:
+								"Thank you for your message, i'll get back to you as soon as possible 😃",
+						});
 					}}
 					class="flex flex-col gap-4"
 				>
@@ -132,7 +143,9 @@ export default function MailFormDialog() {
 							)}
 						</Field>
 					</TextField>
-					<Button type="submit">Send</Button>
+					<Button type="submit" disabled={contactForm.submitting}>
+						{contactForm.submitting ? "Sending" : "Send"}
+					</Button>
 				</Form>
 			</DialogContent>
 		</Dialog>

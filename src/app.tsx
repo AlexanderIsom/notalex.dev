@@ -12,6 +12,7 @@ import {
 } from "@kobalte/core";
 import { isServer } from "solid-js/web";
 import { inject } from "@vercel/analytics";
+import { Toaster } from "./components/ui/toast";
 
 function getServerCookies() {
 	"use server";
@@ -36,6 +37,7 @@ export default function App() {
 						<main class="max-w-2xl mx-auto px-4">
 							<Suspense>{props.children}</Suspense>
 						</main>
+						<Toaster />
 					</ColorModeProvider>
 				</>
 			)}
