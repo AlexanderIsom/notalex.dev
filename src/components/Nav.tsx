@@ -7,6 +7,7 @@ export default function Nav() {
 			<ul class="container flex items-center p-3 justify-center ">
 				<div class="flex font-semibold items-center gap-4">
 					<a href="/">home</a>
+					{/* <a href="/work">work</a> */}
 					<MailFormDialog />
 					<DarkModeToggle />
 				</div>

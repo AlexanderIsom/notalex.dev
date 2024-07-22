@@ -38,6 +38,12 @@ dependencies:
   nodemailer:
     specifier: ^6.9.14
     version: 6.9.14
+  overlayscrollbars:
+    specifier: ^2.9.2
+    version: 2.9.2
+  overlayscrollbars-solid:
+    specifier: ^0.5.5
+    version: 0.5.5(overlayscrollbars@2.9.2)(solid-js@1.8.18)
   postcss:
     specifier: ^8.4.38
     version: 8.4.39
@@ -3664,6 +3670,20 @@ packages:
       supports-color: 9.4.0
       undici: 5.28.4
       yargs-parser: 21.1.1
+    dev: false
+
+  /overlayscrollbars-solid@0.5.5(overlayscrollbars@2.9.2)(solid-js@1.8.18):
+    resolution: {integrity: sha512-YXjU0Q8XhpDcnKyLlgAI6Qcum3btU/4fQbLVzOgxgld4b1oWEaYRL+V8YNgLc/TmlT2taQoLuskTUMDVrIapaQ==}
+    peerDependencies:
+      overlayscrollbars: ^2.0.0
+      solid-js: ^1.7.0
+    dependencies:
+      overlayscrollbars: 2.9.2
+      solid-js: 1.8.18
+    dev: false
+
+  /overlayscrollbars@2.9.2:
+    resolution: {integrity: sha512-iDT84r39i7oWP72diZN2mbJUsn/taCq568aQaIrc84S87PunBT7qtsVltAF2esk7ORTRjQDnfjVYoqqTzgs8QA==}
     dev: false
 
   /package-json-from-dist@1.0.0:

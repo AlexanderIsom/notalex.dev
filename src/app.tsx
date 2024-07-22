@@ -1,6 +1,6 @@
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
-import { Suspense } from "solid-js";
+import { Suspense, onMount } from "solid-js";
 import "./app.css";
 import "@fontsource/inter";
 import Nav from "./components/Nav";
@@ -14,6 +14,9 @@ import { isServer } from "solid-js/web";
 import { inject } from "@vercel/analytics";
 import { Toaster } from "./components/ui/toast";
 
+import "overlayscrollbars/overlayscrollbars.css";
+import { createOverlayScrollbars } from "overlayscrollbars-solid";
+
 function getServerCookies() {
 	"use server";
 	const colorMode = getCookie("kb-color-mode");
@@ -24,6 +27,20 @@ export default function App() {
 	const storageManager = cookieStorageManagerSSR(
 		isServer ? getServerCookies() : document.cookie
 	);
+
+	const [initBodyOverlayScrollbars, getBodyOverlayScrollbarsInstance] =
+		createOverlayScrollbars({
+			defer: true,
+			options: {
+				scrollbars: {
+					theme: "os-theme-light",
+				},
+			},
+		});
+
+	onMount(() => {
+		initBodyOverlayScrollbars(document.body);
+	});
 
 	inject({ mode: "auto" });
 
