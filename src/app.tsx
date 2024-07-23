@@ -51,7 +51,7 @@ export default function App() {
 					<ColorModeScript storageType={storageManager.type} />
 					<ColorModeProvider storageManager={storageManager}>
 						<Nav />
-						<main class="max-w-2xl mx-auto px-4">
+						<main class="flex-auto flex flex-col px-4 max-w-2xl antialiased mx-auto">
 							<Suspense>{props.children}</Suspense>
 						</main>
 						<Toaster />

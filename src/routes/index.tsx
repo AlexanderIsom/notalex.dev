@@ -12,33 +12,33 @@ function Badge(props: any) {
 		<a
 			{...props}
 			target="_blank"
-			class="inline-flex align-middle items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+			class="not-prose inline-flex align-middle items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
 		/>
 	);
 }
 
 export default function Home() {
 	return (
-		<section class="gap-4 flex flex-col">
+		<section class="prose prose-neutral dark:prose-invert">
 			<title>NotAlex.Dev</title>
 			<div class="w-full flex flex-col items-center justify-center ">
 				<img
 					src="/images/alexOutlined.png"
 					alt="Alex"
-					class="rounded-full max-w-32 max-h-32 object-cover"
+					class="rounded-full max-w-32 max-h-32 object-cover "
 				/>
-				<h1 class="mt-8 tracking-tighter text-2xl font-semibold">
+				<h1 class=" tracking-tighter text-2xl font-semibold">
 					Hello there! 👋
 				</h1>
 			</div>
-			<p>
+			<h2 class="text-xl">
 				I'm Alexander a Software Engineer passionate about the web development
 				space!
-			</p>
-			<p class="text-xl">some apps i've made</p>
+			</h2>
+			<p>some apps i've made</p>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 columns-sm">
-				<Card class="transition-all hover:scale-[1.02] h-fit">
+				<Card class="not-prose transition-all hover:scale-[1.02] h-fit">
 					<CardHeader>
 						<a href="https://timelineup.com/" target="_blank">
 							<img
@@ -56,74 +56,73 @@ export default function Home() {
 						</CardDescription>
 					</CardHeader>
 					<CardContent>
-						<p class="pb-2 ">
-							{"made with "}
-							<Badge href="https://nextjs.org/">
-								<img
-									alt="Next.js logomark"
-									src="/brands/nextjs.svg"
-									class="!mr-1"
-									width="14"
-									height="14"
-								/>
-								Next.js
-							</Badge>
-							{", "}
-							<Badge href="https://supabase.com/">
-								<img
-									alt="Supabase logomark"
-									src="/brands/supabase.svg"
-									class="!mr-1"
-									width="14"
-									height="14"
-								/>
-								Supabase
-							</Badge>
-							{", "}
-							<Badge href="https://orm.drizzle.team/" class="flex align-top">
-								<img
-									alt="Drizzle orm logomark"
-									src="/brands/drizzle.svg"
-									class="!mr-1"
-									width="16"
-									height="14"
-								/>
-								Drizzle orm
-							</Badge>
-							{", "}
-							<Badge href="https://tailwindcss.com/">
-								<img
-									alt="Tailwind logomark"
-									src="/brands/tailwind.svg"
-									class="!mr-1"
-									width="14"
-									height="14"
-								/>
-								Tailwind
-							</Badge>
-							{" and hosted on "}
-							<Badge href="https://vercel.com/">
-								<img
-									alt="Vercel logomark"
-									src="/brands/vercel-dark.svg"
-									class="!mr-1"
-									width="14"
-									height="14"
-								/>
-								Vercel
-							</Badge>
-						</p>
+						{"made with "}
+						<Badge href="https://nextjs.org/">
+							<img
+								alt="Next.js logomark"
+								src="/brands/nextjs.svg"
+								class="!mr-1"
+								width="14"
+								height="14"
+							/>
+							Next.js
+						</Badge>
+						{", "}
+						<Badge href="https://supabase.com/">
+							<img
+								alt="Supabase logomark"
+								src="/brands/supabase.svg"
+								class="!mr-1"
+								width="14"
+								height="14"
+							/>
+							Supabase
+						</Badge>
+						{", "}
+						<Badge href="https://orm.drizzle.team/" class="flex align-top">
+							<img
+								alt="Drizzle orm logomark"
+								src="/brands/drizzle.svg"
+								class="!mr-1"
+								width="16"
+								height="14"
+							/>
+							Drizzle orm
+						</Badge>
+						{", "}
+						<Badge href="https://tailwindcss.com/">
+							<img
+								alt="Tailwind logomark"
+								src="/brands/tailwind.svg"
+								class="!mr-1"
+								width="14"
+								height="14"
+							/>
+							Tailwind
+						</Badge>
+						{" and hosted on "}
+						<Badge href="https://vercel.com/">
+							<img
+								alt="Vercel logomark"
+								src="/brands/vercel-dark.svg"
+								class="!mr-1"
+								width="14"
+								height="14"
+							/>
+							Vercel
+						</Badge>
+
 						<a
 							href="https://timelineup.com/"
 							target="_blank"
-							class={`${buttonVariants({ variant: "outline" })} w-full`}
+							class={`${buttonVariants({ variant: "outline" })} w-full mt-4`}
 						>
 							Visit Website
 						</a>
 					</CardContent>
 				</Card>
 
-				<Card class="transition-all hover:scale-[1.02] h-fit">
+				<Card class="not-prose transition-all hover:scale-[1.02] h-fit">
 					<CardHeader>
 						<a href="https://www.starfield-lock-solver.com/" target="_blank">
 							<img
