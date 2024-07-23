@@ -37,7 +37,7 @@ export default function Work() {
 					University graduate
 				</h2>
 				<p class="text-neutral-600 dark:text-neutral-400 text-sm">
-					class of 2021, BSc (Hons) Games Software Engineering
+					class of 2020, BSc (Hons) Games Software Engineering
 				</p>
 			</div>
 		</section>
