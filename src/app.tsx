@@ -16,6 +16,7 @@ import { Toaster } from "./components/ui/toast";
 
 import "overlayscrollbars/overlayscrollbars.css";
 import { createOverlayScrollbars } from "overlayscrollbars-solid";
+import Scrollbars from "./components/Scrollbars";
 
 function getServerCookies() {
 	"use server";
@@ -28,19 +29,19 @@ export default function App() {
 		isServer ? getServerCookies() : document.cookie
 	);
 
-	const [initBodyOverlayScrollbars, getBodyOverlayScrollbarsInstance] =
-		createOverlayScrollbars({
-			defer: true,
-			options: {
-				scrollbars: {
-					theme: "os-theme-light",
-				},
-			},
-		});
+	// const [initBodyOverlayScrollbars, getBodyOverlayScrollbarsInstance] =
+	// 	createOverlayScrollbars({
+	// 		defer: true,
+	// 		options: {
+	// 			scrollbars: {
+	// 				theme: "os-theme-light",
+	// 			},
+	// 		},
+	// 	});
 
-	onMount(() => {
-		initBodyOverlayScrollbars(document.body);
-	});
+	// onMount(() => {
+	// 	initBodyOverlayScrollbars(document.body);
+	// });
 
 	inject({ mode: "auto" });
 
@@ -50,6 +51,7 @@ export default function App() {
 				<>
 					<ColorModeScript storageType={storageManager.type} />
 					<ColorModeProvider storageManager={storageManager}>
+						<Scrollbars />
 						<Nav />
 						<main class="flex-auto flex flex-col px-4 max-w-2xl antialiased mx-auto">
 							<Suspense>{props.children}</Suspense>

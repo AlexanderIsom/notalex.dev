@@ -24,8 +24,8 @@ export default function Work() {
 					<li>
 						I work on various parts of game development, from implmenting user
 						facing features such as inventory systems to working with redis,
-						python and lua to create a matchmaking system. And using api and sql
-						queries to develop leaderboards
+						python and lua to create a matchmaking systems, and using api and
+						sql queries to develop leaderboards
 					</li>
 					<li>
 						I help build internal tooling to aid development and streamline
