@@ -36,7 +36,6 @@ const submitForm = action(async (formData: ContactForm) => {
 	"use server";
 	const { email, name, message } = formData;
 	const resend = new Resend(process.env.RESEND_API_KEY);
-	console.log(process.env.RESEND_SENDER_EMAIL);
 	const { data, error } = await resend.emails.send({
 		from: process.env.RESEND_SENDER_EMAIL!,
 		to: [process.env.RESEND_TARGET_EMAIL!],
