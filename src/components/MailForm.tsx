@@ -1,5 +1,4 @@
 import { createForm, zodForm } from "@modular-forms/solid";
-import Mail from "nodemailer/lib/mailer";
 import { z } from "zod";
 import { Button } from "./ui/button";
 import {
@@ -18,10 +17,10 @@ import {
 } from "./ui/text-field";
 
 import { action, useAction } from "@solidjs/router";
-import nodemailer from "nodemailer";
 import { createSignal } from "solid-js";
 import { showToast } from "./ui/toast";
 import { IconSpinner } from "./Icons";
+import { Resend } from "resend";
 
 const ContactSchema = z.object({
 	email: z.string().email(),
@@ -36,41 +35,21 @@ type ContactForm = z.infer<typeof ContactSchema>;
 const submitForm = action(async (formData: ContactForm) => {
 	"use server";
 	const { email, name, message } = formData;
-
-	const transport = nodemailer.createTransport({
-		service: "gmail",
-		auth: {
-			user: process.env.MAILER_EMAIL,
-			pass: process.env.MAILER_PASSWORD,
-		},
+	const resend = new Resend(process.env.RESEND_API_KEY);
+	console.log(process.env.RESEND_SENDER_EMAIL);
+	const { data, error } = await resend.emails.send({
+		from: process.env.RESEND_SENDER_EMAIL!,
+		to: [process.env.RESEND_TARGET_EMAIL!],
+		subject: `NA.D : ${name}`,
+		html: `new message from ${name},</br> </br> ${message}.</br> </br> email : ${email}`,
 	});
 
-	const mailOptions: Mail.Options = {
-		from: process.env.MAILER_EMAIL,
-		to: process.env.MAILER_TARGET,
-		// cc: email, (uncomment this line if you want to send a copy to the sender)
-		subject: `Message from ${name} (${email})`,
-		text: `This is a message via notalex.dev from ${name} (${email}): ${message} `,
-	};
-
-	const sendMailPromise = () =>
-		new Promise<string>((resolve, reject) => {
-			transport.sendMail(mailOptions, function (err) {
-				if (!err) {
-					resolve("Email sent");
-				} else {
-					reject(err.message);
-				}
-			});
-		});
-
-	try {
-		await sendMailPromise();
-		return true;
-	} catch (err) {
-		console.log(err);
+	if (error) {
+		console.log(error);
 		return false;
 	}
+
+	return true;
 });
 
 export default function MailFormDialog() {
