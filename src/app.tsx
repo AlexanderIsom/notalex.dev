@@ -1,21 +1,20 @@
-import { Router } from "@solidjs/router";
-import { FileRoutes } from "@solidjs/start/router";
-import { Suspense, onMount } from "solid-js";
-import "./app.css";
 import "@fontsource/inter";
-import Nav from "./components/Nav";
-import { getCookie } from "vinxi/http";
 import {
 	ColorModeProvider,
 	ColorModeScript,
 	cookieStorageManagerSSR,
 } from "@kobalte/core";
-import { isServer } from "solid-js/web";
+import { Router } from "@solidjs/router";
+import { FileRoutes } from "@solidjs/start/router";
 import { inject } from "@vercel/analytics";
+import { Suspense } from "solid-js";
+import { isServer } from "solid-js/web";
+import { getCookie } from "vinxi/http";
+import "./app.css";
+import Nav from "./components/Nav";
 import { Toaster } from "./components/ui/toast";
 
 import "overlayscrollbars/overlayscrollbars.css";
-import { createOverlayScrollbars } from "overlayscrollbars-solid";
 import Scrollbars from "./components/Scrollbars";
 
 function getServerCookies() {
@@ -28,20 +27,6 @@ export default function App() {
 	const storageManager = cookieStorageManagerSSR(
 		isServer ? getServerCookies() : document.cookie
 	);
-
-	// const [initBodyOverlayScrollbars, getBodyOverlayScrollbarsInstance] =
-	// 	createOverlayScrollbars({
-	// 		defer: true,
-	// 		options: {
-	// 			scrollbars: {
-	// 				theme: "os-theme-light",
-	// 			},
-	// 		},
-	// 	});
-
-	// onMount(() => {
-	// 	initBodyOverlayScrollbars(document.body);
-	// });
 
 	inject({ mode: "auto" });
 

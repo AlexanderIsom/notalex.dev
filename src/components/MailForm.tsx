@@ -61,7 +61,12 @@ export default function MailFormDialog() {
 
 	return (
 		<Dialog open={open()} onOpenChange={setOpen}>
-			<DialogTrigger>contact</DialogTrigger>
+			<DialogTrigger>
+				<span class="group transition duration-300">
+					contact
+					<span class="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-black dark:bg-white " />
+				</span>
+			</DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>Contact me</DialogTitle>
