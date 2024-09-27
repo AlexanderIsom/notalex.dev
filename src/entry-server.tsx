@@ -6,7 +6,7 @@ export default createHandler(() => (
 		document={({ assets, children, scripts }) => (
 			<html lang="en" data-overlayscrollbars-initialize>
 				<head>
-					<script defer src="https://cloud.umami.is/script.js" data-website-id={process.env.UMAMI_ID}></script>
+					<script defer src="http://localhost:3000/script.js" data-website-id={process.env.UMAMI_ID}></script>
 					<meta charset="utf-8" />
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
 					<link rel="icon" href="/favicon.ico" />
